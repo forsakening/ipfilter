@@ -90,6 +90,6 @@ IP_FILTER_RET ip_filter_match(int32_t ipv4_addr, IP_FILTER_TABLE* filter_table);
 *      无
 * 返回值：成功返回IP_FILTER_OK，失败返回IP_FILTER_ERR。
 *********************************************************************************/
-IP_FILTER_RET pkt_ip_match(uint8_t* pkt, uint16_t len, IP_FILTER_TABLE* filter_table);
+IP_FILTER_RET pkt_ip_match(uint8_t* pkt, uint16_t len, int32_t* ipv4, IP_FILTER_TABLE* filter_table);
 
 #endif

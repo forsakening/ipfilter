@@ -637,7 +637,7 @@ int32_t pkt_dip_get(uint8_t* pkt, uint16_t len)
 *      无
 * 返回值：成功返回IP_FILTER_OK，失败返回IP_FILTER_ERR。
 *********************************************************************************/
-IP_FILTER_RET pkt_ip_match(uint8_t* pkt, uint16_t len, IP_FILTER_TABLE* filter_table)
+IP_FILTER_RET pkt_ip_match(uint8_t* pkt, uint16_t len, int32_t* ipv4, IP_FILTER_TABLE* filter_table)
 {
 	//获取目的IP
     int32_t dip = pkt_dip_get(pkt, len);
@@ -654,6 +654,7 @@ IP_FILTER_RET pkt_ip_match(uint8_t* pkt, uint16_t len, IP_FILTER_TABLE* filter_t
     if (IP_FILTER_OK != ip_filter_match(dip, filter_table))
 		return IP_FILTER_ERR;
 
+	*ipv4 = dip;
 	return IP_FILTER_OK;
 }
 
